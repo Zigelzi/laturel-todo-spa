@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div>
+      <h2>This is test from Docker with VUE</h2>
+      <p>How's life inside container?</p>
     </div>
-    <router-view />
   </div>
 </template>
 
