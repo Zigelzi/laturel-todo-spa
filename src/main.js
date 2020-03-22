@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
+import "@/assets/scss/style.scss";
 
 Vue.config.productionTip = false;
 axios.defaults.baseURL = "http://localhost:5000/api/";
