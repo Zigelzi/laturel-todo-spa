@@ -1,11 +1,14 @@
 .project-list {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.rounded-border-5 {
+    border-radius: 5px;
 }
 
 .project-card {
     width: 300px;
     background-color: $gray-100;
-    border-radius: 5px;
     box-shadow: 0px 2px 4px rgba($gray-400, 0.8);
     padding: 10px;
     margin-bottom: 20px;
@@ -19,4 +22,13 @@
 .project-card-title {
     margin: 0;
     font-size: $text-24;
+}
+
+.new-project {
+    border: 1px $gray-800 dashed;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    background: rgba($gray-100, 0.3);
 }

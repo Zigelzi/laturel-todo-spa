@@ -1,0 +1,14 @@
+.btn {
+    border: none;
+    padding: 10px;
+    background: none;
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 3px rgba($gray-100, 0.8);
+    }
+}
+
+.btn-primary {
+    background-color: $accent-green-600;
+}

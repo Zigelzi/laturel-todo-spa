@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="new-project rounded-border-5">
+      New project
+    </div>
     <div class="project-list">
       <ProjectCard
         v-for="project in projects"
@@ -29,8 +32,29 @@ export default {
           name: "Test project",
           description: "Project for testing purposes"
         }
-      ]
+      ],
+      test: {}
     };
+  },
+  methods: {
+    sendData() {
+      const path = "/project";
+      axios
+        .post(path, {
+          name: "Test project",
+          description: "Project for testing purposes"
+        })
+        .then(res => {
+          this.test = res.data;
+        })
+        .catch(error => {
+          //eslint-disable-next-line
+        console.error(error);
+        });
+    }
+  },
+  created() {
+    this.sendData();
   }
 };
 </script>
