@@ -359,6 +359,10 @@ html {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .project-list {
   margin-top: 10px;
 }
@@ -377,6 +381,26 @@ html {
 }
 .project-card:hover {
   box-shadow: 0px 2px 8px rgba(143, 158, 163, 0.8);
+}
+.project-card #project-name,
+.project-card #project-description {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px 0;
+  background: none;
+  border: none;
+}
+.project-card #project-name::after,
+.project-card #project-description::after {
+  content: "";
+  height: 1px;
+  background-color: #1484B8;
+}
+.project-card #project-name {
+  font-size: 24px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .project-card-title {

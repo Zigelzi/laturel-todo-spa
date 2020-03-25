@@ -3,6 +3,7 @@
     <div class="new-project rounded-border-5">
       New project
     </div>
+    <NewProject />
     <div class="project-list">
       <ProjectCard
         v-for="project in projects"
@@ -16,9 +17,10 @@
 //eslint-disable-next-line
 import axios from "axios";
 import ProjectCard from "@/components/ProjectCard";
+import NewProject from "@/components/NewProject";
 
 export default {
-  components: { ProjectCard },
+  components: { ProjectCard, NewProject },
   data() {
     return {
       projects: [
