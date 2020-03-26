@@ -389,18 +389,34 @@ html {
   margin: 5px 0;
   background: none;
   border: none;
-}
-.project-card #project-name::after,
-.project-card #project-description::after {
-  content: "";
-  height: 1px;
-  background-color: #1484B8;
+  position: relative;
+  transition: all 0.12s ease;
 }
 .project-card #project-name {
   font-size: 24px;
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.input-field {
+  position: relative;
+  display: block;
+}
+.input-field input:focus + .input-border,
+.input-field textarea:focus + .input-border {
+  transform: scaleX(1);
+}
+.input-field .input-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #1AA6E5;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
 }
 
 .project-card-title {
@@ -411,7 +427,7 @@ html {
 .new-project {
   border: 1px #2E3638 dashed;
   padding: 15px;
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   background: rgba(227, 231, 232, 0.3);
@@ -420,6 +436,7 @@ html {
 .btn {
   border: none;
   padding: 10px;
+  margin: 10px 0;
   background: none;
 }
 .btn:active {

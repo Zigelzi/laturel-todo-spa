@@ -3,7 +3,7 @@
     <div class="new-project rounded-border-5">
       New project
     </div>
-    <NewProject />
+    <NewProject @projectAdded="updateStatusMessage" />
     <div class="project-list">
       <ProjectCard
         v-for="project in projects"
@@ -35,7 +35,10 @@ export default {
           description: "Project for testing purposes"
         }
       ],
-      test: {}
+      statusMessage: {
+        status: "",
+        message: ""
+      }
     };
   },
   methods: {
@@ -53,6 +56,9 @@ export default {
           //eslint-disable-next-line
         console.error(error);
         });
+    },
+    updateStatusMessage(backendData) {
+      this.statusMessage = backendData;
     }
   },
   created() {
