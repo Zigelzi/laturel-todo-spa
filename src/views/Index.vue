@@ -3,12 +3,13 @@
     <div class="new-project rounded-border-5">
       New project
     </div>
-    <NewProject @projectAdded="updateStatusMessage" />
+    <NewProject @projectAdded="updateState" />
     <div class="project-list">
       <ProjectCard
         v-for="project in projects"
         :project="project"
         :key="project.id"
+        @projectDeleted="updateState"
       />
     </div>
   </div>
@@ -23,18 +24,7 @@ export default {
   components: { ProjectCard, NewProject },
   data() {
     return {
-      projects: [
-        {
-          id: 1,
-          name: "Test project",
-          description: "Project for testing purposes"
-        },
-        {
-          id: 2,
-          name: "Test project",
-          description: "Project for testing purposes"
-        }
-      ],
+      projects: [],
       statusMessage: {
         status: "",
         message: ""
@@ -42,27 +32,28 @@ export default {
     };
   },
   methods: {
-    sendData() {
-      const path = "/project";
+    getProjects() {
+      const path = "/projects";
       axios
-        .post(path, {
-          name: "Test project",
-          description: "Project for testing purposes"
-        })
+        .get(path)
         .then(res => {
-          this.test = res.data;
+          this.projects = res.data.projects;
         })
         .catch(error => {
           //eslint-disable-next-line
-        console.error(error);
+          console.error(error);
         });
     },
     updateStatusMessage(backendData) {
       this.statusMessage = backendData;
+    },
+    updateState(backendData) {
+      this.updateStatusMessage(backendData);
+      this.getProjects();
     }
   },
   created() {
-    this.sendData();
+    this.getProjects();
   }
 };
 </script>
