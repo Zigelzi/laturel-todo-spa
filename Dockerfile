@@ -10,4 +10,4 @@ RUN yarn install
 RUN yarn global add @vue/cli@4.2.3
 
 # Start the app
-CMD ["yarn", "serve"]
+CMD ["yarn", "serve", "--mode", "dev"]

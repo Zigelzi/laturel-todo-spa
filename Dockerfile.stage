@@ -8,5 +8,5 @@ WORKDIR /usr/src/todo-spa
 COPY package*.json /usr/src/todo-spa/
 RUN yarn install
 COPY ./ .
-RUN yarn run build
+RUN yarn run build --mode stage
 COPY ./dist /usr/src/todo-spa/

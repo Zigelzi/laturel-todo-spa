@@ -5,7 +5,9 @@ import axios from "axios";
 import "@/assets/scss/style.scss";
 
 Vue.config.productionTip = false;
-axios.defaults.baseURL = "http://localhost:5000/api/";
+const axiosBaseUrl = process.env.VUE_APP_AXIOS_ROOT_URL;
+
+axios.defaults.baseURL = `http://${axiosBaseUrl}/api/`;
 
 new Vue({
   router,
