@@ -44,12 +44,24 @@ export default {
       axios
         .post(path, payload)
         .then(res => {
+          let newProject = {};
           this.$emit("projectAdded", res.data);
+          newProject = res.data.project;
+          this.goToProject(newProject);
         })
         .catch(error => {
           // esline-disable-next-line
           console.error(error);
         });
+    },
+    goToProject(project) {
+      this.$router.push({
+        name: "singleProject",
+        params: {
+          projectId: project.id,
+          project: project
+        }
+      });
     }
   }
 };

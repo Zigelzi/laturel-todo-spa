@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card rounded-border-5">
+  <div class="project-card rounded-border-5" @click="goToProject">
     <h1 class="project-card-title">{{ project.name }}</h1>
     <p>{{ project.description }}</p>
     <button class="btn btn-danger" @click="deleteProject">Delete</button>
@@ -23,6 +23,15 @@ export default {
           //eslint-disable-next-line
         console.error(error);
         });
+    },
+    goToProject() {
+      this.$router.push({
+        name: "singleProject",
+        params: {
+          projectId: this.project.id,
+          project: this.project
+        }
+      });
     }
   }
 };
