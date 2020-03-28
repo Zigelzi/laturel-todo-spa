@@ -1,7 +1,10 @@
 <template>
-  <div class="project-card rounded-border-5" @click="goToProject">
-    <h1 class="project-card-title">{{ project.name }}</h1>
-    <p>{{ project.description }}</p>
+  <div class="project-card rounded-border-5">
+    <div @click="goToProject">
+      <h1 class="project-card-title">{{ project.name }}</h1>
+      <p>{{ project.description }}</p>
+    </div>
+
     <button class="btn btn-danger" @click="deleteProject">Delete</button>
   </div>
 </template>

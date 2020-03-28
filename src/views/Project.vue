@@ -10,19 +10,37 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import Task from "@/components/Task";
 
 export default {
+  props: {
+    projectId: [String, Number]
+  },
   components: {
     Task
   },
   data() {
     return {
-      project: this.$route.params.project
+      project: {}
     };
   },
   methods: {
-    getProject() {}
+    getProject() {
+      const path = "/project/" + this.projectId;
+      axios
+        .get(path)
+        .then(res => {
+          this.project = res.data.project;
+        })
+        .catch(error => {
+          //eslint-disable-next-line
+          console.error(error);
+        });
+    }
+  },
+  created() {
+    this.getProject();
   }
 };
 </script>
