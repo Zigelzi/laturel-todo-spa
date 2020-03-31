@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="new-project rounded-border-5">
+    <div class="new-item rounded-border-5">
       New project
     </div>
     <NewProject @projectAdded="updateState" />

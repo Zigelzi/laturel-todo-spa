@@ -7,18 +7,21 @@
     <div>
       <Task :task="task" v-for="(task, index) in tasks" :key="index" />
     </div>
+    <NewTask />
   </div>
 </template>
 <script>
 import axios from "axios";
 import Task from "@/components/Task";
+import NewTask from "@/components/NewTask";
 
 export default {
   props: {
     projectId: [String, Number]
   },
   components: {
-    Task
+    Task,
+    NewTask
   },
   data() {
     return {

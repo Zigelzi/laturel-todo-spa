@@ -4,9 +4,9 @@
       :id="taskId"
       type="checkbox"
       v-model="task.completed"
-      class="task-input"
+      class="checkbox-input"
     />
-    <label :for="taskId" class="task-label">{{ task.name }}</label>
+    <label :for="taskId" class="checkbox-label">{{ task.name }}</label>
   </div>
 </template>
 <script>
@@ -19,6 +19,8 @@ export default {
       taskId: "task-" + this.$vnode.key
     };
   },
-  methods: {}
+  methods: {
+    markItemAsCompleted() {}
+  }
 };
 </script>
