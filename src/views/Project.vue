@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="project-heading">
-      <h1>{{ project.name }}</h1>
+    <div class="project-heading-container">
+      <h1 class="project-heading">{{ project.name }}</h1>
       <p class="subtext">{{ project.description }}</p>
     </div>
     <div>
-      <Task />
+      <Task :task="task" v-for="(task, index) in tasks" :key="index" />
     </div>
   </div>
 </template>
@@ -22,7 +22,17 @@ export default {
   },
   data() {
     return {
-      project: {}
+      project: {},
+      tasks: [
+        {
+          name: "Do some task",
+          completed: false
+        },
+        {
+          name: "Do another task",
+          completed: false
+        }
+      ]
     };
   },
   methods: {

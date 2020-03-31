@@ -39,30 +39,6 @@
     }
 }
 
-.input-field {
-    position: relative;
-    display: block;
-
-    input:focus,
-    textarea:focus {
-        + .input-border {
-            transform: scaleX(1);
-        }
-    }
-
-    .input-border {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 100%;
-        background: $primary-blue-500;
-        transform: scaleX(0);
-        transform-origin: 0 0;
-        transition: all .15s ease;
-    } 
-}
-
 .project-card-title {
     margin: 0;
     font-size: $text-24;
@@ -75,4 +51,12 @@
     display: flex;
     justify-content: center;
     background: rgba($gray-100, 0.3);
+}
+
+.project-heading-container {
+    margin-bottom: 20px;
+}
+
+.project-heading {
+    margin: 10px 0;
 }
