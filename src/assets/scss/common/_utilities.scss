@@ -13,7 +13,26 @@
     color: $gray-500;
     margin: 0;
 }
-
 .hidden {
     display: none;
+}
+
+.svg-icon {
+    display: flex;
+    align-items: center;
+}
+
+.icon-s {
+    height: $icon-s;
+    width: $icon-s;
+}
+
+.icon-m {
+    height: $icon-m;
+    width: $icon-m;
+}
+
+.icon-l {
+    height: $icon-l;
+    width: $icon-l;
 }

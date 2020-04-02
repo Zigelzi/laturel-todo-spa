@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="single-project">
     <div class="project-heading-container">
       <h1 class="project-heading">{{ project.name }}</h1>
       <p class="subtext">{{ project.description }}</p>
