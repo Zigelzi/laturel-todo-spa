@@ -7,7 +7,7 @@
     <div>
       <Task :task="task" v-for="(task, index) in tasks" :key="index" />
     </div>
-    <NewTask />
+    <NewTask :projectId="projectId" @taskAdded="getTasks" />
   </div>
 </template>
 <script>
@@ -26,16 +26,7 @@ export default {
   data() {
     return {
       project: {},
-      tasks: [
-        {
-          name: "Do some task",
-          completed: false
-        },
-        {
-          name: "Do another task",
-          completed: false
-        }
-      ]
+      tasks: []
     };
   },
   methods: {
@@ -48,12 +39,25 @@ export default {
         })
         .catch(error => {
           //eslint-disable-next-line
-          console.error(error);
+        console.error(error);
+        });
+    },
+    getTasks() {
+      const path = "/tasks";
+      axios
+        .get(path)
+        .then(res => {
+          this.tasks = res.data.tasks;
+        })
+        .catch(error => {
+          //eslint-disable-next-line
+        console.error(error);
         });
     }
   },
   created() {
     this.getProject();
+    this.getTasks();
   }
 };
 </script>

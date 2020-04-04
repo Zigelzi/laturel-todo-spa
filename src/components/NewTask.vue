@@ -4,7 +4,7 @@
     @click.self="toggleInputVisibility"
   >
     <div v-if="!inputVisible" class="new-item-text">
-      New task
+      <SvgIcon iconType="add" iconSize="icon-m" />
     </div>
     <div v-if="inputVisible" class="new-item-input">
       <input
@@ -14,15 +14,21 @@
         id=""
         placeholder="What needs to be done?"
       />
-      <SvgIcon iconType="add" iconSize="icon-m" class="new-item-icon" />
+      <div @click="createTask">
+        <SvgIcon iconType="add" iconSize="icon-m" class="" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
 import SvgIcon from "@/components/SvgIcon";
 export default {
   components: {
     SvgIcon
+  },
+  props: {
+    projectId: [String, Number]
   },
   data() {
     return {
@@ -35,6 +41,21 @@ export default {
   methods: {
     toggleInputVisibility() {
       this.inputVisible = !this.inputVisible;
+    },
+    createTask() {
+      const path = "/task";
+      const task = this.task;
+      task.project_id = this.projectId;
+
+      axios
+        .post(path, task)
+        .then(res => {
+          this.$emit("taskAdded", res.data);
+        })
+        .catch(error => {
+          //eslint-disable-next-line
+        console.error(error);
+        });
     }
   }
 };

@@ -39,10 +39,10 @@ export default {
   methods: {
     submitProject() {
       const path = "/project";
-      const payload = this.project;
+      const project = this.project;
 
       axios
-        .post(path, payload)
+        .post(path, project)
         .then(res => {
           let newProject = {};
           this.$emit("projectAdded", res.data);
