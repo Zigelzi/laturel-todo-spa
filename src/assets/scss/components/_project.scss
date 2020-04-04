@@ -1,5 +1,5 @@
 .project-list {
-    margin-top: 10px;
+    margin-top: $margin-s;
 }
 
 .rounded-border-5 {
@@ -10,8 +10,8 @@
     width: 300px;
     background-color: $gray-100;
     box-shadow: 0px 2px 4px rgba($gray-400, 0.8);
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: $padding-s;
+    margin-bottom: $margin-m;
     transition: box-shadow 0.2s ease;
 
     &:hover {
@@ -22,7 +22,7 @@
     #project-description {
         width: 100%;
         box-sizing: border-box;
-        margin: 5px 0;
+        margin: $margin-s 0;
         background: none;
         border: none;
         position: relative;
@@ -34,8 +34,8 @@
     #project-name {
         font-size: $text-24;
         border: none;
-        padding-top: 10px;
-        padding-bottom: 10px;        
+        padding-top: $padding-s;
+        padding-bottom: $padding-s;        
     }
 }
 
@@ -45,7 +45,7 @@
 }
 
 .project-heading-container {
-    margin-bottom: 20px;
+    margin-bottom: $margin-m;
 }
 
 .single-project {
@@ -54,12 +54,12 @@
 }
 
 .project-heading {
-    margin: 10px 0;
+    margin: $margin-s 0;
 }
 
 .new-item {
     border: 1px $gray-800 dashed;
-    padding: 15px;
+    padding: $padding-s;
     width: 80%;
     height: 50px;
     display: flex;
@@ -100,9 +100,9 @@
 }
 
 .task-container {
-    padding: 10px 10px;
+    padding: $padding-s;
     background-color: $gray-300;
-    margin-bottom: 5px;
+    margin-bottom: $margin-xs;
 }
 
 .task-complete {

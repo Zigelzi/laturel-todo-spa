@@ -1,6 +1,11 @@
 <template>
   <div>
-    <router-link :to="{ name: 'allProjects' }">Project list</router-link>
+    <nav class="nav">
+      <router-link :to="{ name: 'allProjects' }" class=""
+        >Project list</router-link
+      >
+    </nav>
+
     <router-view></router-view>
   </div>
 </template>
