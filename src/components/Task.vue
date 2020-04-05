@@ -1,5 +1,5 @@
 <template>
-  <div class="task-container">
+  <div class="task-container" :class="{ 'task-complete': task.completed }">
     <input
       :id="taskId"
       type="checkbox"
@@ -16,11 +16,22 @@ export default {
   },
   data() {
     return {
-      taskId: "task-" + this.$vnode.key
+      taskId: "task-" + this.task.id
     };
   },
   methods: {
-    markItemAsCompleted() {}
+    toggleTaskCompletion() {},
+    updateTask() {}
+  },
+  computed: {
+    completed() {
+      return this.task.completed;
+    }
+  },
+  watch: {
+    completed() {
+      this.$emit("taskChanged", this.task);
+    }
   }
 };
 </script>

@@ -5,7 +5,24 @@
       <p class="subtext">{{ project.description }}</p>
     </div>
     <div>
-      <Task :task="task" v-for="(task, index) in tasks" :key="index" />
+      <div class="task-list">
+        <h2>Incomplete</h2>
+        <Task
+          :task="task"
+          v-for="task in tasks"
+          :key="task.id"
+          @taskChanged="reorderTasks"
+        />
+      </div>
+      <div class="task-list">
+        <h2>Completed</h2>
+        <Task
+          :task="completedTask"
+          v-for="completedTask in completedTasks"
+          :key="completedTask.id"
+          @taskChanged="reorderTasks"
+        />
+      </div>
     </div>
     <NewTask :projectId="projectId" @taskAdded="getTasks" />
   </div>
@@ -26,7 +43,8 @@ export default {
   data() {
     return {
       project: {},
-      tasks: []
+      tasks: [],
+      completedTasks: []
     };
   },
   methods: {
@@ -53,6 +71,20 @@ export default {
           //eslint-disable-next-line
         console.error(error);
         });
+    },
+    reorderTasks(task) {
+      if (task.completed) {
+        this.removeTaskFromArray(task, this.tasks);
+        this.completedTasks.push(task);
+      }
+      if (!task.completed) {
+        this.removeTaskFromArray(task, this.completedTasks);
+        this.tasks.push(task);
+      }
+    },
+    removeTaskFromArray(task, taskArray) {
+      let taskIndex = taskArray.findIndex(item => item.id === task.id);
+      taskArray.splice(taskIndex, 1);
     }
   },
   created() {

@@ -51,6 +51,7 @@ export default {
         .post(path, task)
         .then(res => {
           this.$emit("taskAdded", res.data);
+          this.task = {};
         })
         .catch(error => {
           //eslint-disable-next-line

@@ -62,6 +62,7 @@
     padding: $padding-s;
     width: 80%;
     height: 50px;
+    max-width: $container-max-width;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,5 +107,23 @@
 }
 
 .task-complete {
-    background-color: rgba($gray-300, 0.5);
+    background-color: rgba($gray-100, 0.5);
+
+    .checkbox-label {
+        text-decoration: line-through;
+    }
+    .checkbox-label,
+    .checkbox-label::after,
+    .checkbox-label::before {
+        opacity: 0.5;
+    }
+}
+
+.task-list {
+    min-height: 40px;
+
+    h2 {
+        padding-bottom: $padding-xs;
+        border-bottom: 1px solid $gray-300;
+    }
 }

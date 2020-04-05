@@ -10,6 +10,6 @@ html {
 }
 
 .main-container {
-    max-width: 90%;
+    max-width: $container-max-width;
     min-width: 300px;
 }
