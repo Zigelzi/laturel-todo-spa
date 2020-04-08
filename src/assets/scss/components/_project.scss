@@ -61,7 +61,7 @@
     border: 1px $gray-800 dashed;
     padding: $padding-s;
     width: 80%;
-    height: 50px;
+    height: $new-item-height;
     max-width: $container-max-width;
     display: flex;
     justify-content: center;
@@ -104,17 +104,36 @@
     padding: $padding-s;
     background-color: $gray-300;
     margin-bottom: $margin-xs;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .task-name {
+        padding-right: $padding-xs;
+        max-height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .task-checkbox {
+        flex-basis: $checkbox-size + 5px;
+        flex-shrink: 0;
+        height: $checkbox-size;
+    }
 }
 
 .task-complete {
     background-color: rgba($gray-100, 0.5);
 
-    .checkbox-label {
+    .task-name {
         text-decoration: line-through;
     }
     .checkbox-label,
     .checkbox-label::after,
-    .checkbox-label::before {
+    .checkbox-label::before,
+    .task-name  {
         opacity: 0.5;
     }
 }

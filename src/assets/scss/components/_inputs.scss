@@ -25,21 +25,21 @@
 .checkbox-label {
     display: inline-block;
     position: relative;
-    padding-left: $checkbox-size + $label-padding-left;
 
     &::before {
-        // Checkbox outer border
+        // Box of the checkbox
         height: $checkbox-size;
         width: $checkbox-size;
         border: 1px solid;
-        top: 0px;
+        bottom: -7px;
         left: 0;
     }
     &::after {
+        // Checkmark of the checkbox
         height: 6px;
-        width: 9px;
+        width: 16px;
         left: 4px;
-        top: 3px;
+        bottom: 3px;
 
         border-left: 2px solid;
         border-bottom: 2px solid;

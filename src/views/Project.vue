@@ -9,7 +9,7 @@
         <h2>Incomplete</h2>
         <Task
           :task="task"
-          v-for="task in tasks"
+          v-for="task in project.tasks"
           :key="task.id"
           @taskChanged="reorderTasks"
         />
@@ -24,7 +24,7 @@
         />
       </div>
     </div>
-    <NewTask :projectId="projectId" @taskAdded="getTasks" />
+    <NewTask :projectId="projectId" @taskAdded="getProject" />
   </div>
 </template>
 <script>
@@ -43,7 +43,6 @@ export default {
   data() {
     return {
       project: {},
-      tasks: [],
       completedTasks: []
     };
   },
@@ -60,26 +59,14 @@ export default {
         console.error(error);
         });
     },
-    getTasks() {
-      const path = "/tasks";
-      axios
-        .get(path)
-        .then(res => {
-          this.tasks = res.data.tasks;
-        })
-        .catch(error => {
-          //eslint-disable-next-line
-        console.error(error);
-        });
-    },
     reorderTasks(task) {
       if (task.completed) {
-        this.removeTaskFromArray(task, this.tasks);
+        this.removeTaskFromArray(task, this.project.tasks);
         this.completedTasks.push(task);
       }
       if (!task.completed) {
         this.removeTaskFromArray(task, this.completedTasks);
-        this.tasks.push(task);
+        this.project.tasks.push(task);
       }
     },
     removeTaskFromArray(task, taskArray) {
@@ -89,7 +76,6 @@ export default {
   },
   created() {
     this.getProject();
-    this.getTasks();
   }
 };
 </script>

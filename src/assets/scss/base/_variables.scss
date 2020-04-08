@@ -70,6 +70,9 @@ $gray-100: #E3E7E8;
 $primary-action: $gray-500;
 $danger: $gray-500;
 
+// Component sizes
+$new-item-height: 50px;
+
 // Paddings and margins
 $margin-xs: 5px;
 $margin-s: 10px;
@@ -81,7 +84,7 @@ $padding-s: 10px;
 $padding-m: 20px;
 $padding-l: 25px;
 
-$checkbox-size: 16px;
+$checkbox-size: 25px;
 $label-padding-left: 10px;
 
 // Icon sizes

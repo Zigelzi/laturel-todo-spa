@@ -1,15 +1,17 @@
 html {
     font-family: Helvetica, sans-serif;
     background-color: #fefefe;
+    line-height: 1.6;
 }
 
 #app {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin: 50px $margin-s $margin-s 0;
 }
 
 .main-container {
     max-width: $container-max-width;
     min-width: 300px;
+    margin-bottom: 2 * $new-item-height;
 }

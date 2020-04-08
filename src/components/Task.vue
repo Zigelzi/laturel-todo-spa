@@ -1,12 +1,17 @@
 <template>
   <div class="task-container" :class="{ 'task-complete': task.completed }">
-    <input
-      :id="taskId"
-      type="checkbox"
-      v-model="task.completed"
-      class="checkbox-input"
-    />
-    <label :for="taskId" class="checkbox-label">{{ task.name }}</label>
+    <div class="task-name">
+      <label>{{ task.name }}</label>
+    </div>
+    <div class="task-checkbox">
+      <input
+        :id="taskId"
+        type="checkbox"
+        v-model="task.completed"
+        class="checkbox-input"
+      />
+      <label :for="taskId" class="checkbox-label"></label>
+    </div>
   </div>
 </template>
 <script>
