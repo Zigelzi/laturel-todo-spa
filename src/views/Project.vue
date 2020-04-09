@@ -6,7 +6,7 @@
     </div>
     <div>
       <div class="task-list">
-        <h2>Incomplete</h2>
+        <h2 class="task-status-heading">Incomplete</h2>
         <Task
           :task="task"
           v-for="task in project.tasks"

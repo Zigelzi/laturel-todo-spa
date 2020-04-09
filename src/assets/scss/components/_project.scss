@@ -54,7 +54,7 @@
 }
 
 .project-heading {
-    margin: $margin-s 0;
+    margin: 0;
 }
 
 .new-item {
@@ -101,9 +101,13 @@
 }
 
 .task-container {
+    margin-bottom: $margin-xs;
+}
+
+.task-details {
     padding: $padding-s;
     background-color: $gray-300;
-    margin-bottom: $margin-xs;
+
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -125,24 +129,39 @@
 }
 
 .task-complete {
-    background-color: rgba($gray-100, 0.5);
+    opacity: 0.5;
 
     .task-name {
         text-decoration: line-through;
     }
-    .checkbox-label,
-    .checkbox-label::after,
-    .checkbox-label::before,
-    .task-name  {
-        opacity: 0.5;
+    
+}
+
+.task-additional-information {
+    background-color: $gray-300;
+    padding: $padding-s;
+    overflow: hidden;
+
+    .assignee-list {
+        p {
+            margin: 0;
+        }
+    }
+    .assignee {
+        display: inline-block;
+        margin: $margin-s $margin-s $margin-s 0;
+        padding: 0 $padding-xs;
+        background: $gray-200;
     }
 }
 
 .task-list {
     min-height: 40px;
 
-    h2 {
+    .task-status-heading {
         padding-bottom: $padding-xs;
         border-bottom: 1px solid $gray-300;
+        margin-top: 0;
+        margin-bottom: $margin-s;
     }
 }

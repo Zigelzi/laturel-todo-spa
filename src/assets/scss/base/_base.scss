@@ -7,7 +7,7 @@ html {
 #app {
     display: flex;
     justify-content: center;
-    margin: 50px $margin-s $margin-s 0;
+    margin: $margin-m $margin-s $margin-s 0;
 }
 
 .main-container {
