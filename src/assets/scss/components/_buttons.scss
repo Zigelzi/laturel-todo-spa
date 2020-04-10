@@ -4,6 +4,7 @@
     background: none;
     max-width: 200px;
     display: inline-block;
+    cursor: pointer;
 
     &:active {
         transform: translateY(2px);
