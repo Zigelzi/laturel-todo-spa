@@ -138,20 +138,37 @@
 }
 
 .task-additional-information {
-    background-color: $gray-300;
+    background-color: $gray-100;
     padding: $padding-s;
     overflow: hidden;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+
+    .task-comments {
+        flex-basis: $icon-s;
+    }
 
     .assignee-list {
+        flex: 1;
         p {
             margin: 0;
         }
     }
+
+    .no-assignees {
+        color: $gray-600;
+        font-size: $text-12;
+    }
     .assignee {
         display: inline-block;
-        margin: $margin-s $margin-s $margin-s 0;
+        margin: $margin-xs $margin-s $margin-s 0;
         padding: 0 $padding-xs;
         background: $gray-200;
+    }
+
+    .task-join {
+        margin-top: $margin-s;
     }
 }
 

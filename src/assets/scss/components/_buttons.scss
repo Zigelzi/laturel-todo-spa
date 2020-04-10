@@ -1,8 +1,9 @@
 .btn {
     border: none;
-    padding: $padding-s;
-    margin: $margin-m 0;
+    padding: $padding-xs $padding-m;
     background: none;
+    max-width: 200px;
+    display: inline-block;
 
     &:active {
         transform: translateY(2px);

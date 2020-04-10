@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="new-item rounded-border-5">
-      New project
-    </div>
     <NewProject @projectAdded="updateState" />
     <div class="project-list">
       <ProjectCard

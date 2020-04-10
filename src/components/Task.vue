@@ -21,17 +21,28 @@
     <transition name="expand">
       <div class="task-additional-information" v-if="showAdditionalInformation">
         <div class="assignee-list">
-          <p>Assigned to</p>
+          <SvgIcon iconType="people" iconSize="icon-s" />
+          <div class="no-assignees" v-if="noAssignees">
+            Nobody on this yet...
+          </div>
           <div
-            v-for="assignee in additionalInformation.assignees"
+            v-for="assignee in task.assignees"
             :key="assignee.id"
             class="assignee"
           >
             {{ assignee.name }}
           </div>
+          <div class="task-join">
+            <div class="btn btn-primary">Join</div>
+          </div>
         </div>
-        <div class="comment-section">
-          <SvgIcon iconType="chatBox" iconSize="icon-m" />
+        <div class="task-comments">
+          <div class="comment-section">
+            <SvgIcon iconType="chatBox" iconSize="icon-s" />
+          </div>
+          <div v-for="comment in task.comments" :key="comment.id">
+            {{ comment.content }}
+          </div>
         </div>
       </div>
     </transition>
@@ -67,25 +78,7 @@ export default {
   data() {
     return {
       taskId: "task-" + this.task.id,
-      showAdditionalInformation: false,
-      additionalInformation: {
-        assignees: [
-          {
-            id: 1,
-            name: "Matti"
-          },
-          {
-            id: 2,
-            name: "Liisa"
-          }
-        ],
-        comments: [
-          {
-            content: "Testing the comment",
-            author: "Matti"
-          }
-        ]
-      }
+      showAdditionalInformation: false
     };
   },
   methods: {
@@ -96,6 +89,13 @@ export default {
   computed: {
     completed() {
       return this.task.completed;
+    },
+    noAssignees() {
+      if (this.task.assignees.length === 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   watch: {
