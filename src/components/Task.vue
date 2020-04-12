@@ -140,16 +140,11 @@ export default {
     task() {
       const assignees = this.task.assignees;
       const currentUser = this.currentUser;
-      // console.log(assignees[0].name);
-      // console.log(currentUser.name);
-      console.log(assignees);
-      if (
-        assignees.some(assignee => {
-          assignee.id === currentUser.id;
-        })
-      ) {
-        this.isAssigned = true;
-      }
+      let isAssigned = assignees.some(assignee => {
+        assignee.id === currentUser.id;
+        return true;
+      });
+      this.isAssigned = isAssigned;
     }
   },
   mounted() {
