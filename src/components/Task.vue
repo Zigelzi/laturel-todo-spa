@@ -32,8 +32,11 @@
           >
             {{ assignee.name }}
           </div>
+          {{ isAssigned }}
           <div class="task-join">
-            <div class="btn btn-primary">Join</div>
+            <div class="btn btn-primary" @click.stop="addAssigneeToTask">
+              Join
+            </div>
           </div>
         </div>
         <div class="task-comments">
@@ -67,7 +70,10 @@
 }
 </style>
 <script>
+import axios from "axios";
+
 import SvgIcon from "@/components/SvgIcon";
+
 export default {
   components: {
     SvgIcon
@@ -78,12 +84,41 @@ export default {
   data() {
     return {
       taskId: "task-" + this.task.id,
-      showAdditionalInformation: false
+      currentUser: {
+        id: null,
+        name: ""
+      },
+      showAdditionalInformation: false,
+      isAssigned: false
     };
   },
   methods: {
     toggleAdditionalInformationVisibility() {
       this.showAdditionalInformation = !this.showAdditionalInformation;
+    },
+    addAssigneeToTask() {
+      const path = "/task/assignee";
+      const task = this.task;
+      const user = this.getCurrentUserFromLocalStorage();
+      const payload = {
+        user: user,
+        task: task
+      };
+
+      axios
+        .post(path, payload)
+        .then(() => {
+          this.$emit("assigneeAdded");
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    getCurrentUserFromLocalStorage() {
+      let user = localStorage.getItem("user");
+      user = JSON.parse(user);
+      this.currentUser = user;
+      return user;
     }
   },
   computed: {
@@ -101,7 +136,24 @@ export default {
   watch: {
     completed() {
       this.$emit("taskChanged", this.task);
+    },
+    task() {
+      const assignees = this.task.assignees;
+      const currentUser = this.currentUser;
+      // console.log(assignees[0].name);
+      // console.log(currentUser.name);
+      console.log(assignees);
+      if (
+        assignees.some(assignee => {
+          assignee.id === currentUser.id;
+        })
+      ) {
+        this.isAssigned = true;
+      }
     }
+  },
+  mounted() {
+    this.getCurrentUserFromLocalStorage();
   }
 };
 </script>

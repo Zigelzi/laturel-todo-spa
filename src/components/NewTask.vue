@@ -1,6 +1,10 @@
 <template>
   <div class="new-item rounded-border-5" @click.self="toggleInputVisibility">
-    <div v-if="!inputVisible" class="new-item-text">
+    <div
+      v-if="!inputVisible"
+      class="new-item-text"
+      @click="toggleInputVisibility"
+    >
       <SvgIcon iconType="add" iconSize="icon-m" />
     </div>
     <div v-if="inputVisible" class="new-item-input">
@@ -10,6 +14,7 @@
         name=""
         id=""
         placeholder="What needs to be done?"
+        @keyup.enter="createTask"
       />
       <div @click="createTask">
         <SvgIcon iconType="add" iconSize="icon-m" class="" />

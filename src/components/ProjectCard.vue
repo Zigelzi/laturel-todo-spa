@@ -5,7 +5,7 @@
       <p>{{ project.description }}</p>
     </div>
 
-    <button class="btn btn-danger" @click="deleteProject">Delete</button>
+    <button class="btn btn-danger" @click.stop="deleteProject">Delete</button>
   </div>
 </template>
 <script>
