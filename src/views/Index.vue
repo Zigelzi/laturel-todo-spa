@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import NewUserForm from "@/components/NewUserForm";
 
 export default {
@@ -30,11 +31,30 @@ export default {
   methods: {
     checkForExistingUser() {
       if (localStorage.user) {
-        this.user = JSON.parse(localStorage.user);
-        this.userExists = true;
+        const user = JSON.parse(localStorage.user);
+        this.getUser(user);
       } else {
         this.userExists = false;
       }
+    },
+    getUser(user) {
+      const path = "/user/" + user.id;
+      const errorMessage = "Queried user was not found";
+      let errorReseponseMessage = "";
+
+      axios
+        .get(path)
+        .then(res => {
+          this.user = res.data.user;
+          this.userExists = true;
+        })
+        .catch(error => {
+          errorReseponseMessage = error.response.data.message;
+          if (errorReseponseMessage === errorMessage) {
+            localStorage.removeItem("user");
+            this.userExists = false;
+          }
+        });
     }
   },
   mounted() {
