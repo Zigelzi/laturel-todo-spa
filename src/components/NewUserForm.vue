@@ -5,7 +5,7 @@
       <p>Set your username to start creating and participating to projects!</p>
     </div>
     <form class="new-user-form">
-      <label
+      <label class="input-field"
         >Name
         <input
           type="text"
@@ -14,6 +14,7 @@
           placeholder="Matti Meikäläinen"
           @keyup.enter.prevent="addNewUser"
         />
+        <span class="input-border"></span>
       </label>
       <button class="btn btn-primary" @click.prevent="addNewUser">
         Set username

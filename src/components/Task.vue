@@ -113,6 +113,18 @@ export default {
     toggleAdditionalInformationVisibility() {
       this.showAdditionalInformation = !this.showAdditionalInformation;
     },
+    updateTask() {
+      const path = "/task/" + this.task.id;
+      const task = this.task;
+      axios
+        .put(path, task)
+        .then(() => {
+          this.$emit("taskDataUpdated");
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
     addAssigneeToTask() {
       const path = "/task/add_assignee";
       const task = this.task;
@@ -124,7 +136,7 @@ export default {
       axios
         .post(path, payload)
         .then(() => {
-          this.$emit("assigneesUpdated");
+          this.$emit("taskDataUpdated");
         })
         .catch(error => {
           console.error(error);
@@ -141,7 +153,7 @@ export default {
       axios
         .post(path, payload)
         .then(() => {
-          this.$emit("assigneesUpdated");
+          this.$emit("taskDataUpdated");
         })
         .catch(error => {
           console.error(error);
@@ -177,6 +189,7 @@ export default {
   },
   watch: {
     completed() {
+      this.updateTask();
       this.$emit("taskChanged", this.task);
     },
     task() {

@@ -11,7 +11,7 @@
           v-for="task in project.tasks"
           :key="task.id"
           @taskChanged="reorderTasks"
-          @assigneesUpdated="getProject"
+          @taskDataUpdated="getProject"
         />
       </div>
       <div class="task-list">
@@ -20,7 +20,7 @@
           v-for="completedTask in completedTasks"
           :key="completedTask.id"
           @taskChanged="reorderTasks"
-          @assigneesUpdated="getProject"
+          @taskDataUpdated="getProject"
         />
       </div>
     </div>

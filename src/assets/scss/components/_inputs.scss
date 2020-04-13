@@ -2,6 +2,17 @@
     position: relative;
     display: block;
 
+    input,
+    textarea {
+        display: block;
+        margin: $margin-s 0;  
+        background: none;
+        border: none;
+        position: relative;
+        transition: all .12s ease;
+
+    }
+
     input:focus,
     textarea:focus {
         + .input-border {
