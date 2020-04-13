@@ -6,23 +6,21 @@
     </div>
     <div>
       <div class="task-list">
-        <h2 class="task-status-heading">Incomplete</h2>
         <Task
           :task="task"
           v-for="task in project.tasks"
           :key="task.id"
           @taskChanged="reorderTasks"
-          @assigneeAdded="getProject"
+          @assigneesUpdated="getProject"
         />
       </div>
       <div class="task-list">
-        <h2>Completed</h2>
         <Task
           :task="completedTask"
           v-for="completedTask in completedTasks"
           :key="completedTask.id"
           @taskChanged="reorderTasks"
-          @assigneeAdded="getProject"
+          @assigneesUpdated="getProject"
         />
       </div>
     </div>

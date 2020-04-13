@@ -4,6 +4,13 @@
     @click="toggleAdditionalInformationVisibility"
     :class="{ 'task-complete': task.completed }"
   >
+    <div class="assignees-indicator-container">
+      <span
+        v-for="(assignees, index) in task.assignees"
+        :key="index"
+        class="assignee-indicator"
+      ></span>
+    </div>
     <div class="task-details">
       <div class="task-name">
         <label>{{ task.name }}</label>
@@ -32,10 +39,20 @@
           >
             {{ assignee.name }}
           </div>
-          {{ isAssigned }}
-          <div class="task-join">
-            <div class="btn btn-primary" @click.stop="addAssigneeToTask">
-              Join
+          <div class="task-assignee-buttons">
+            <div class="task-join" v-if="!isAssigned">
+              <button class="btn btn-primary" @click.stop="addAssigneeToTask">
+                Join
+              </button>
+            </div>
+            <div
+              class="task-leave"
+              v-if="isAssigned"
+              @click.stop="removeAssigneeFromTask"
+            >
+              <button class="btn btn-primary">
+                Leave
+              </button>
             </div>
           </div>
         </div>
@@ -97,18 +114,34 @@ export default {
       this.showAdditionalInformation = !this.showAdditionalInformation;
     },
     addAssigneeToTask() {
-      const path = "/task/assignee";
+      const path = "/task/add_assignee";
       const task = this.task;
       const user = this.getCurrentUserFromLocalStorage();
       const payload = {
         user: user,
         task: task
       };
-
       axios
         .post(path, payload)
         .then(() => {
-          this.$emit("assigneeAdded");
+          this.$emit("assigneesUpdated");
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    removeAssigneeFromTask() {
+      const path = "/task/remove_assignee";
+      const task = this.task;
+      const user = this.getCurrentUserFromLocalStorage();
+      const payload = {
+        user: user,
+        task: task
+      };
+      axios
+        .post(path, payload)
+        .then(() => {
+          this.$emit("assigneesUpdated");
         })
         .catch(error => {
           console.error(error);
@@ -119,6 +152,15 @@ export default {
       user = JSON.parse(user);
       this.currentUser = user;
       return user;
+    },
+    checkIfUserIsAssignedToTask() {
+      const assignees = this.task.assignees;
+      const currentUser = this.currentUser;
+      let isAssigned = assignees.some(assignee => {
+        assignee.id === currentUser.id;
+        return true;
+      });
+      this.isAssigned = isAssigned;
     }
   },
   computed: {
@@ -138,17 +180,12 @@ export default {
       this.$emit("taskChanged", this.task);
     },
     task() {
-      const assignees = this.task.assignees;
-      const currentUser = this.currentUser;
-      let isAssigned = assignees.some(assignee => {
-        assignee.id === currentUser.id;
-        return true;
-      });
-      this.isAssigned = isAssigned;
+      this.checkIfUserIsAssignedToTask();
     }
   },
   mounted() {
     this.getCurrentUserFromLocalStorage();
+    this.checkIfUserIsAssignedToTask();
   }
 };
 </script>

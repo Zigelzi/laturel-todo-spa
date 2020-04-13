@@ -101,7 +101,25 @@
 }
 
 .task-container {
-    margin-bottom: $margin-xs;
+    margin-bottom: $margin-s;
+    position: relative;
+
+    .assignees-indicator-container {
+        position: absolute;
+        top: -5px; // Half of the height
+        left: $margin-s;
+        height: 10px;
+
+        .assignee-indicator {
+            display: inline-block;
+            vertical-align: top;
+            width: 10px;
+            height: 10px;
+            background: $gray-600;
+            border-radius: 50%;
+
+        }
+    }
 }
 
 .task-details {
