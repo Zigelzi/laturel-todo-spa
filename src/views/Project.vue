@@ -8,9 +8,8 @@
       <div class="task-list">
         <Task
           :task="task"
-          v-for="task in project.tasks"
+          v-for="task in incompleteTasks"
           :key="task.id"
-          @taskChanged="reorderTasks"
           @taskDataUpdated="getProject"
         />
       </div>
@@ -19,7 +18,6 @@
           :task="completedTask"
           v-for="completedTask in completedTasks"
           :key="completedTask.id"
-          @taskChanged="reorderTasks"
           @taskDataUpdated="getProject"
         />
       </div>
@@ -43,6 +41,7 @@ export default {
   data() {
     return {
       project: {},
+      incompleteTasks: [],
       completedTasks: []
     };
   },
@@ -52,28 +51,26 @@ export default {
       axios
         .get(path)
         .then(res => {
-          this.project = res.data.project;
+          let project = {};
+          project = res.data.project;
+          this.project = project;
+
+          this.filterIncompleteTasks(project.tasks);
+          this.filterCompleteTasks(project.tasks);
         })
         .catch(error => {
           //eslint-disable-next-line
         console.error(error);
         });
     },
-    reorderTasks(task) {
-      if (task.completed) {
-        this.removeTaskFromArray(task, this.project.tasks);
-        this.completedTasks.push(task);
-      }
-      if (!task.completed) {
-        this.removeTaskFromArray(task, this.completedTasks);
-        this.project.tasks.push(task);
-      }
+    filterIncompleteTasks(tasks) {
+      this.incompleteTasks = tasks.filter(task => !task.completed);
     },
-    removeTaskFromArray(task, taskArray) {
-      let taskIndex = taskArray.findIndex(item => item.id === task.id);
-      taskArray.splice(taskIndex, 1);
+    filterCompleteTasks(tasks) {
+      this.completedTasks = tasks.filter(task => task.completed);
     }
   },
+
   created() {
     this.getProject();
   }

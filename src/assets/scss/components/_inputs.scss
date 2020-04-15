@@ -5,9 +5,12 @@
     input,
     textarea {
         display: block;
+        padding: $padding-s 0;
+        border: 0;
+        border-bottom: $gray-200 2px solid;
+        width: 100%;
         margin: $margin-s 0;  
         background: none;
-        border: none;
         position: relative;
         transition: all .12s ease;
 
@@ -18,6 +21,10 @@
         + .input-border {
             transform: scaleX(1);
         }
+    }
+
+    .input-label {
+        font-weight: 600;
     }
 
     .input-border {

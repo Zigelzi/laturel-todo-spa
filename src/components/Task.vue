@@ -2,7 +2,7 @@
   <div
     class="task-container"
     @click="toggleAdditionalInformationVisibility"
-    :class="{ 'task-complete': task.completed }"
+    :class="{ 'task-complete': taskCompleted }"
   >
     <div class="assignees-indicator-container">
       <span
@@ -19,7 +19,7 @@
         <input
           :id="taskId"
           type="checkbox"
-          v-model="task.completed"
+          v-model="taskCompleted"
           class="checkbox-input"
         />
         <label :for="taskId" class="checkbox-label"></label>
@@ -101,6 +101,7 @@ export default {
   data() {
     return {
       taskId: "task-" + this.task.id,
+      taskCompleted: this.task.completed,
       currentUser: {
         id: null,
         name: ""
@@ -115,7 +116,9 @@ export default {
     },
     updateTask() {
       const path = "/task/" + this.task.id;
-      const task = this.task;
+      let task = this.task;
+      task.completed = this.taskCompleted;
+
       axios
         .put(path, task)
         .then(() => {
@@ -169,16 +172,14 @@ export default {
       const assignees = this.task.assignees;
       const currentUser = this.currentUser;
       let isAssigned = assignees.some(assignee => {
-        assignee.id === currentUser.id;
-        return true;
+        if (assignee.id === currentUser.id) {
+          return true;
+        }
       });
       this.isAssigned = isAssigned;
     }
   },
   computed: {
-    completed() {
-      return this.task.completed;
-    },
     noAssignees() {
       if (this.task.assignees.length === 0) {
         return true;
@@ -188,7 +189,10 @@ export default {
     }
   },
   watch: {
-    completed() {
+    taskCompleted() {
+      console.log("Watched task");
+      console.log(this.task.name);
+      console.log(this.task.completed);
       this.updateTask();
       this.$emit("taskChanged", this.task);
     },
