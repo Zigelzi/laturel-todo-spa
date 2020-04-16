@@ -11,7 +11,8 @@
 
 @import 'common/utilities';
 
-@import 'components/project',
+@import 'components/general',
+        'components/project',
         'components/inputs',
         'components/buttons',
         'components/nav';

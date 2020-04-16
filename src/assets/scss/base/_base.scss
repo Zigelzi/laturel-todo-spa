@@ -2,16 +2,28 @@ html {
     font-family: Helvetica, sans-serif;
     background-color: #fefefe;
     line-height: 1.6;
+    min-height: 100%;
+}
+body {
+    margin: 0;
 }
 
 #app {
     display: flex;
     justify-content: center;
-    margin: $margin-m $margin-s $margin-s 0;
+    flex-direction: column;
 }
 
 .main-container {
     max-width: $container-max-width;
     min-width: 300px;
+    margin-top: $margin-m;
     margin-bottom: 2 * $new-item-height;
+    padding: $padding-s $padding-m;
+}
+
+.main-header {
+    background: $primary-blue-900;
+    padding: $padding-s $padding-m;
+    border-bottom: 3px solid $primary-blue-500
 }

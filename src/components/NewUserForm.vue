@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <p>Welcome to Laturel ToDo!</p>
+    <div class="welcome-message">
+      <h2 class="text-20 fw-normal m-top-0">Welcome to Laturel ToDo!</h2>
       <p>Set your username to start creating and participating to projects!</p>
     </div>
     <form class="new-user-form">

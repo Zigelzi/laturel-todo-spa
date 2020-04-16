@@ -190,9 +190,6 @@ export default {
   },
   watch: {
     taskCompleted() {
-      console.log("Watched task");
-      console.log(this.task.name);
-      console.log(this.task.completed);
       this.updateTask();
       this.$emit("taskChanged", this.task);
     },

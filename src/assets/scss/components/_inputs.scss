@@ -13,6 +13,7 @@
         background: none;
         position: relative;
         transition: all .12s ease;
+        color: $primary-blue-900;
 
     }
 
@@ -48,9 +49,10 @@
         // Box of the checkbox
         height: $checkbox-size;
         width: $checkbox-size;
-        border: 1px solid;
+        border: 1px solid $primary-blue-900;
         bottom: -7px;
         left: 0;
+        box-shadow: 0 0 1px rgba($gray-900, 0.7) inset;
     }
     &::after {
         // Checkmark of the checkbox
@@ -59,8 +61,8 @@
         left: 4px;
         bottom: 3px;
 
-        border-left: 2px solid;
-        border-bottom: 2px solid;
+        border-left: 2px solid $primary-blue-900;
+        border-bottom: 2px solid $primary-blue-900;
 
         transform: rotate(-45deg);
     }
@@ -80,11 +82,20 @@
     position: absolute;
 
     // Toggling the checkbox visibility when it's checked
+
+    // Unchecked
     +.checkbox-label::after {
         content: none;
     }
+
+    // Checked
     &:checked + .checkbox-label::after {
         content: "";
+    }
+
+    &:checked + .checkbox-label::before {
+        background: $primary-blue-400;
+        box-shadow: 0 0 2px rgba($gray-900, 0.9) inset;
     }
 
     &:focus + .checkbox-label::before {

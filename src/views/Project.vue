@@ -1,9 +1,23 @@
 <template>
   <div class="single-project">
     <div class="project-heading-container">
-      <h1 class="project-heading">{{ project.name }}</h1>
-      <p class="subtext">{{ project.description }}</p>
+      <h1 class="project-heading text-24">{{ project.name }}</h1>
+      <div class="project-additional-content">
+        <p class="subtext text-14">{{ project.description }}</p>
+        <div class="tasks-remaining">
+          <p class="subtext text-14" v-if="incompleteTasks.length === 0">
+            All tasks completed!
+          </p>
+          <p class="subtext text-14" v-if="incompleteTasks.length === 1">
+            {{ incompleteTasks.length }} task remaining
+          </p>
+          <p class="subtext text-14" v-if="incompleteTasks.length > 1">
+            {{ incompleteTasks.length }} tasks remaining
+          </p>
+        </div>
+      </div>
     </div>
+
     <div>
       <div class="task-list">
         <Task

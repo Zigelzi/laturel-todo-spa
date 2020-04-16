@@ -8,7 +8,7 @@
 
 .project-card {
     width: 300px;
-    background-color: $gray-100;
+    background-color: $primary-blue-100;
     box-shadow: 0px 2px 4px rgba($gray-400, 0.8);
     padding: $padding-s;
     margin-bottom: $margin-m;
@@ -26,7 +26,6 @@
 
     #project-name {
         font-size: $text-24;
-        border: none;
         padding-top: $padding-s;
         padding-bottom: $padding-s;        
     }
@@ -39,6 +38,11 @@
 
 .project-heading-container {
     margin-bottom: $margin-m;
+
+    .project-additional-content {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .single-project {
@@ -108,7 +112,7 @@
             vertical-align: top;
             width: 10px;
             height: 10px;
-            background: $gray-600;
+            background: $accent-yellow-400;
             border-radius: 50%;
 
         }
@@ -117,7 +121,8 @@
 
 .task-details {
     padding: $padding-s;
-    background-color: $gray-300;
+    // background-color: $primary-blue-500;
+    border: 2px solid $primary-blue-300;
 
     display:flex;
     justify-content: space-between;
@@ -149,7 +154,10 @@
 }
 
 .task-additional-information {
-    background-color: $gray-100;
+    // background-color: $primary-blue-100;
+    border: 2px solid $gray-200;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
     padding: $padding-s;
     overflow: hidden;
     box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
@@ -175,7 +183,8 @@
         display: inline-block;
         margin: $margin-xs $margin-s $margin-s 0;
         padding: 0 $padding-xs;
-        background: $gray-200;
+        // background: $gray-200;
+        border: 2px solid $accent-yellow-500;
     }
 
     .task-join {

@@ -1,12 +1,61 @@
 .main-title {
     text-transform: uppercase;
     margin: 0;
+    font-weight: 400;
+    color: $gray-100;
 }
+
+.text-12 {
+    font-size: $text-12;
+}
+.text-14 {
+    font-size: $text-14;
+}
+.text-16 {
+    font-size: $text-16;
+}
+.text-18 {
+    font-size: $text-18;
+}
+
+.text-20 {
+    font-size: $text-20;
+}
+
+.text-24 {
+    font-size: $text-24;
+}
+
 .text-30 {
     font-size: $text-30;
 }
-.text-12 {
-    font-size: $text-12;
+
+.text-36 {
+    font-size: $text-36;
+}
+
+.text-48 {
+    font-size: $text-48;
+}
+
+.text-60 {
+    font-size: $text-60;
+}
+
+.text-72 {
+    font-size: $text-72;
+}
+
+.fw-normal {
+    font-weight: 400;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.m-top-0 {
+    margin-top: 0;
 }
 
 .subtext {
