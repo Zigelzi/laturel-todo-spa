@@ -16,7 +16,7 @@ body {
 
 .main-container {
     max-width: $container-max-width;
-    min-width: 300px;
+    min-width: $container-min-width;
     margin-top: $margin-m;
     margin-bottom: 2 * $new-item-height;
     padding: $padding-s $padding-m;
@@ -25,5 +25,12 @@ body {
 .main-header {
     background: $primary-blue-900;
     padding: $padding-s $padding-m;
-    border-bottom: 3px solid $primary-blue-500
+    border-bottom: 3px solid $primary-blue-500;
+    text-align: center;
+}
+
+@media all and (min-width: $bp-m) {
+    .main-container {
+        margin: 20px auto 0;
+    }
 }

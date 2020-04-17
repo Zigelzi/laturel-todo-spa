@@ -50,7 +50,7 @@ $accent-green-900: #033014;
 $accent-green-800: #075F28;
 $accent-green-700: #0A8F3C;
 $accent-green-600: #0EBE50;
-$accent-green-500: #11EC63;
+$accent-green-500: #558c84;
 $accent-green-400: #41F183;
 $accent-green-300: #70F5A2;
 $accent-green-200: #A0F8C1;
@@ -68,7 +68,7 @@ $gray-100: #E3E7E8;
 
 // Component colors
 $primary-action: $primary-blue-700;
-$danger: $gray-500;
+$danger: $accent-red-600;
 
 // Component sizes
 $new-item-height: 50px;
@@ -94,3 +94,4 @@ $icon-l: 75px;
 
 // Container sizes
 $container-max-width: 600px;
+$container-min-width: 300px;

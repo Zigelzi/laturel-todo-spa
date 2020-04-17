@@ -11,6 +11,12 @@
         transform: translateY(2px);
         box-shadow: 0 2px 3px rgba($gray-100, 0.8);
     }
+
+    transition: opacity .15s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .btn-primary {
@@ -20,4 +26,5 @@
 
 .btn-danger {
     background-color: $danger;
+    color: $gray-100;
 }

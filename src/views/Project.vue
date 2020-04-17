@@ -16,6 +16,7 @@
           </p>
         </div>
       </div>
+      <button class="btn btn-danger" @click.stop="deleteProject">Delete</button>
     </div>
 
     <div>
@@ -71,6 +72,18 @@ export default {
 
           this.filterIncompleteTasks(project.tasks);
           this.filterCompleteTasks(project.tasks);
+        })
+        .catch(error => {
+          //eslint-disable-next-line
+        console.error(error);
+        });
+    },
+    deleteProject() {
+      const path = "/project/" + this.project.id;
+      axios
+        .delete(path)
+        .then(res => {
+          this.$emit("projectDeleted", res.data);
         })
         .catch(error => {
           //eslint-disable-next-line

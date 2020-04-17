@@ -41,6 +41,21 @@
     } 
 }
 
+.task-checkbox {
+    &:hover .checkbox-label::after {
+        content: "";
+        height: 6px;
+        width: 16px;
+        opacity: 1;
+
+    }
+
+    &:hover .checkbox-label::before {
+        background: $primary-blue-200;
+        box-shadow: 0 0 5px white inset;
+    }
+}
+
 .checkbox-label {
     display: inline-block;
     position: relative;
@@ -53,6 +68,7 @@
         bottom: -7px;
         left: 0;
         box-shadow: 0 0 1px rgba($gray-900, 0.7) inset;
+        transition: background-color .15s ease-in-out;
     }
     &::after {
         // Checkmark of the checkbox
@@ -60,6 +76,8 @@
         width: 16px;
         left: 4px;
         bottom: 3px;
+        transition: height .3s,
+                    width .3s .3s;
 
         border-left: 2px solid $primary-blue-900;
         border-bottom: 2px solid $primary-blue-900;
@@ -85,20 +103,27 @@
 
     // Unchecked
     +.checkbox-label::after {
-        content: none;
+        content: "";
+        height: 0;
+        width: 0;
+        opacity: 0;
     }
 
     // Checked
     &:checked + .checkbox-label::after {
         content: "";
+        height: 6px;
+        width: 16px;
+        opacity: 1;
     }
 
     &:checked + .checkbox-label::before {
-        background: $primary-blue-400;
-        box-shadow: 0 0 2px rgba($gray-900, 0.9) inset;
+        background: $primary-blue-200;
+        box-shadow: 0 0 5px white inset;
     }
 
     &:focus + .checkbox-label::before {
         outline: solid 1px rgb(59, 153, 252);
+        
     }
 }

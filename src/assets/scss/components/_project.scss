@@ -8,7 +8,7 @@
 
 .project-card {
     width: 300px;
-    background-color: $primary-blue-100;
+    background-color: $gray-100;
     box-shadow: 0px 2px 4px rgba($gray-400, 0.8);
     padding: $padding-s;
     margin-bottom: $margin-m;
@@ -57,7 +57,7 @@
 .new-item {
     border: 1px $gray-800 dashed;
     padding: $padding-s;
-    width: 80%;
+    min-width: $container-min-width;
     height: $new-item-height;
     max-width: $container-max-width;
     display: flex;
@@ -100,6 +100,13 @@
 .task-container {
     margin-bottom: $margin-s;
     position: relative;
+    box-shadow: 0px 1px 3px rgba($gray-900, 0.5);
+    transition: box-shadow .15s ease;
+    border-radius: 0 0 5px 5px;
+
+    &:hover {
+        box-shadow: 0px 3px 5px rgba($gray-900, 0.5);;
+    }
 
     .assignees-indicator-container {
         position: absolute;
@@ -112,7 +119,7 @@
             vertical-align: top;
             width: 10px;
             height: 10px;
-            background: $accent-yellow-400;
+            background: $accent-green-500;
             border-radius: 50%;
 
         }
@@ -121,12 +128,12 @@
 
 .task-details {
     padding: $padding-s;
-    // background-color: $primary-blue-500;
     border: 2px solid $primary-blue-300;
 
     display:flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
 
     .task-name {
         padding-right: $padding-xs;
@@ -154,13 +161,11 @@
 }
 
 .task-additional-information {
-    // background-color: $primary-blue-100;
     border: 2px solid $gray-200;
     border-top: 0;
     border-radius: 0 0 5px 5px;
     padding: $padding-s;
     overflow: hidden;
-    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: space-between;
 
@@ -184,7 +189,7 @@
         margin: $margin-xs $margin-s $margin-s 0;
         padding: 0 $padding-xs;
         // background: $gray-200;
-        border: 2px solid $accent-yellow-500;
+        border: 2px solid $accent-green-500;
     }
 
     .task-join {
