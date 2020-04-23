@@ -3,7 +3,7 @@
     <div class="project-heading-container">
       <h1 class="project-heading text-24">{{ project.name }}</h1>
       <div class="project-additional-content">
-        <p class="subtext text-14">{{ project.description }}</p>
+        <p class="subtext project-subtext text-14">{{ project.description }}</p>
         <div class="tasks-remaining">
           <p class="subtext text-14" v-if="incompleteTasks.length === 0">
             {{ $tc("project.tasks", 0) }}

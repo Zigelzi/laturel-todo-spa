@@ -42,6 +42,8 @@
     .project-additional-content {
         display: flex;
         justify-content: space-between;
+        border-bottom: 1px solid $gray-100;
+        padding-bottom: $padding-s;
     }
 }
 
@@ -52,6 +54,10 @@
 
 .project-heading {
     margin: 0;
+}
+
+.project-subtext {
+    margin-right: 10px;
 }
 
 .new-item {
