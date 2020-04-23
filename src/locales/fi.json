@@ -1,3 +1,32 @@
 {
-    "message": "Testi"
+  "header":{
+    "subtitle":"Projektinhallinnan apurisi"
+  },
+  "project":{
+    "tasks":"Kaikki tehtävät valmiit! | tehtävä jäljellä | tehtävää jäljellä"
+  },
+  "nav":{
+    "title":"Projektilista"
+  },
+  "task":{
+    "noAssignees":"Ei kenenkään vastuulla...",
+    "join":"Liity",
+    "leave":"Poistu"
+  },
+  "newUserForm":{
+    "title":"Tervetuloa Laturel ToDo:oon!",
+    "description":"Aseta itsellesi käyttäjänimi luodaksesi ja osallistuaksesi projekteihin!",
+    "name":"Nimi",
+    "setUsername":"Aseta käyttäjänimi"
+  },
+  "newTask":{
+    "placeholder":"Mitä tarvitsee tehdä?"
+  },
+  "newProject":{
+    "placeholders":{
+      "projectName":"Projektin nimi",
+      "projectDescription":"Projektin kuvaus"
+    },
+    "create":"Luo"
+  }
 }

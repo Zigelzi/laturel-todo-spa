@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="welcome-message">
-      <h2 class="text-20 fw-normal m-top-0">Welcome to Laturel ToDo!</h2>
-      <p>Set your username to start creating and participating to projects!</p>
+      <h2 class="text-20 fw-normal m-top-0">{{ $t("newUserForm.title") }}</h2>
+      <p>{{ $t("newUserForm.description") }}</p>
     </div>
     <form class="new-user-form">
       <label class="input-field">
-        <span class="input-label">Name</span>
+        <span class="input-label">{{ $t("newUserForm.name") }}</span>
         <input
           type="text"
           v-model="user.name"
@@ -18,7 +18,7 @@
         <span class="input-border"></span>
       </label>
       <button class="btn btn-primary" @click.prevent="addNewUser">
-        Set username
+        {{ $t("newUserForm.setUsername") }}
       </button>
     </form>
   </div>

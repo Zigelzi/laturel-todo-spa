@@ -6,17 +6,17 @@
         <p class="subtext text-14">{{ project.description }}</p>
         <div class="tasks-remaining">
           <p class="subtext text-14" v-if="incompleteTasks.length === 0">
-            All tasks completed!
+            {{ $tc("project.tasks", 0) }}
           </p>
           <p class="subtext text-14" v-if="incompleteTasks.length === 1">
-            {{ incompleteTasks.length }} task remaining
+            {{ incompleteTasks.length }} {{ $tc("project.tasks", 1) }}
           </p>
           <p class="subtext text-14" v-if="incompleteTasks.length > 1">
-            {{ incompleteTasks.length }} tasks remaining
+            {{ incompleteTasks.length }} {{ $tc("project.tasks", 2) }}
           </p>
         </div>
       </div>
-      <button class="btn btn-danger" @click.stop="deleteProject">Delete</button>
+      <!-- <button class="btn btn-danger" @click.stop="deleteProject">Delete</button> -->
     </div>
 
     <div>

@@ -4,7 +4,7 @@
       <input
         type="text"
         id="project-name"
-        placeholder="Project name"
+        :placeholder="$t('newProject.placeholders.projectName')"
         v-model="project.name"
       />
       <span class="input-border"></span>
@@ -16,12 +16,14 @@
         id="project-description"
         cols="25"
         rows="5"
-        placeholder="Project description"
+        :placeholder="$t('newProject.placeholders.projectDescription')"
         v-model="project.description"
       ></textarea>
       <span class="input-border"></span
     ></label>
-    <button @click="submitProject" class="btn btn-primary">Create</button>
+    <button @click="submitProject" class="btn btn-primary">
+      {{ $t("newProject.create") }}
+    </button>
   </div>
 </template>
 <script>

@@ -13,7 +13,7 @@
         type="text"
         name=""
         id=""
-        placeholder="What needs to be done?"
+        :placeholder="$t('newTask.placeholder')"
         @keyup.enter="createTask"
       />
       <div @click="createTask">

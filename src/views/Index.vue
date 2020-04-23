@@ -3,9 +3,9 @@
     <NewUserForm v-if="!userExists" @userSaved="checkForExistingUser" />
     <div v-if="userExists">
       <nav class="nav">
-        <router-link :to="{ name: 'allProjects' }" class="nav-link"
-          >Project list</router-link
-        >
+        <router-link :to="{ name: 'allProjects' }" class="nav-link">{{
+          $t("nav.title")
+        }}</router-link>
       </nav>
       <router-view></router-view>
     </div>

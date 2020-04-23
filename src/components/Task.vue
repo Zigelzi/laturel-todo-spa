@@ -30,7 +30,7 @@
         <div class="assignee-list">
           <SvgIcon iconType="people" iconSize="icon-s" />
           <div class="no-assignees" v-if="noAssignees">
-            Nobody on this yet...
+            {{ $t("task.noAssignees") }}
           </div>
           <div
             v-for="assignee in task.assignees"
@@ -42,7 +42,7 @@
           <div class="task-assignee-buttons">
             <div class="task-join" v-if="!isAssigned">
               <button class="btn btn-primary" @click.stop="addAssigneeToTask">
-                Join
+                {{ $t("task.join") }}
               </button>
             </div>
             <div
@@ -51,7 +51,7 @@
               @click.stop="removeAssigneeFromTask"
             >
               <button class="btn btn-primary">
-                Leave
+                {{ $t("task.leave") }}
               </button>
             </div>
           </div>

@@ -1,3 +1,32 @@
 {
-  "message": "hello i18n !!"
+  "header":{
+    "subtitle":"Your project tracking buddy"
+  },
+  "project":{
+    "tasks":"All tasks completed! | task remaining | tasks remaining"
+  },
+  "nav":{
+    "title":"Project list"
+  },
+  "task":{
+    "noAssignees":"Nobody on this yet...",
+    "join":"Join",
+    "leave":"Leave"
+  },
+  "newUserForm":{
+    "title":"Welcome to Laturel ToDo!",
+    "description":"Set your username to start creating and participating to projects!",
+    "name":"Name",
+    "setUsername":"Set username"
+  },
+  "newTask":{
+    "placeholder":"What needs to be done?"
+  },
+  "newProject":{
+    "placeholders":{
+      "projectName":"Project name",
+      "projectDescription":"Project description"
+    },
+    "create":"Create"
+  }
 }

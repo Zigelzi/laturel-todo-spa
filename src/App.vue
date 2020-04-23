@@ -2,7 +2,7 @@
   <div id="app">
     <header class="main-header">
       <h1 class="text-30 main-title">Laturel Todo</h1>
-      <p class="text-12 subtext">Your project tracking buddy</p>
+      <p class="text-12 subtext">{{ $t("header.subtitle") }}</p>
       <div class="language-switcher">
         <button
           class="language-button"
