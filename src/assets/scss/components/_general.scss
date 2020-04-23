@@ -3,3 +3,20 @@
         margin-top: 0;
     }
 }
+
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    opacity: .8;
+}
+
+.language-button {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.language-flag {
+    width: 40px;
+}
